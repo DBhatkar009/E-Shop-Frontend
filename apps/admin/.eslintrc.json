@@ -10,7 +10,7 @@
                     "error",
                     {
                         "type": "attribute",
-                        "prefix": "eShopFrontend",
+                        "prefix": "admin",
                         "style": "camelCase"
                     }
                 ],
@@ -18,7 +18,7 @@
                     "error",
                     {
                         "type": "element",
-                        "prefix": "e-shop-frontend",
+                        "prefix": "admin",
                         "style": "kebab-case"
                     }
                 ]
