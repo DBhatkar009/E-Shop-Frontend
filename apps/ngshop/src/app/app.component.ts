@@ -8,6 +8,7 @@ import { HeaderComponent } from "./shared/header/header.component";
 @Component({
   standalone: true,
   imports: [RouterModule, HomePageComponent, ProductListComponent, FooterComponent, HeaderComponent],
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'e-shop-frontend-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

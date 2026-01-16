@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'e-shop-frontend-footer',
+    selector: 'ngshop-footer',
     standalone: true,
     imports: [CommonModule],
     templateUrl: './footer.component.html',

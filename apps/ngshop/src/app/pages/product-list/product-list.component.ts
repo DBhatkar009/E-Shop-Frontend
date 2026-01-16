@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'e-shop-frontend-product-list',
+    selector: 'ngshop-product-list',
     standalone: true,
     imports: [CommonModule],
     templateUrl: './product-list.component.html',
