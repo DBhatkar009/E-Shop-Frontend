@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
     selector: 'e-shop-frontend-products',
     standalone: true,
     imports: [CommonModule],
-    templateUrl: './products.component.html',
-    styleUrl: './products.component.scss'
+    templateUrl: './products.component.html'
 })
 export class ProductsComponent {}

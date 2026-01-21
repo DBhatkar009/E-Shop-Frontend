@@ -1,0 +1,25 @@
+// base styles
+@import './base//color.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+@import './base/configuration.scss';
+
+
+// bootstrap link
+@import "bootstrap/scss/bootstrap";
+
+// shared styles for ngshop app can be added here
+// pages component styles
+@import './apps/shop/pages/home-page.scss';
+@import './apps/shop/pages/product-list.scss';
+
+// shared component styles
+@import './apps/shop/shared/footer.scss';
+@import './apps/shop/shared/header.scss';
+
+
+// lib component styles
+@import './ui/ui.scss';
+@import './orders/orders.scss';
+@import './products/products.scss';
+@import './users/users.scss';

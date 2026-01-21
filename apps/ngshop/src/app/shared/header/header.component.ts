@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
     selector: 'ngshop-header',
     standalone: true,
     imports: [CommonModule],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+    templateUrl: './header.component.html'
 })
 export class HeaderComponent {}

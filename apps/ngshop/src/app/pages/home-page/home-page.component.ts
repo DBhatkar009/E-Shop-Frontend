@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
     selector: 'ngshop-home-page',
     standalone: true,
     imports: [CommonModule],
-    templateUrl: './home-page.component.html',
-    styleUrl: './home-page.component.scss'
+    templateUrl: './home-page.component.html'
 })
 export class HomePageComponent {}

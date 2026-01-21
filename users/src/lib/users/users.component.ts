@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
     selector: 'users-users',
     standalone: true,
     imports: [CommonModule],
-    templateUrl: './users.component.html',
-    styleUrl: './users.component.scss'
+    templateUrl: './users.component.html'
 })
 export class UsersComponent {}

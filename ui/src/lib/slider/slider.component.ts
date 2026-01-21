@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
   selector: 'slider',
   standalone: true,
   imports: [],
-  templateUrl: './slider.component.html',
-  styleUrl: './slider.component.scss'
+  templateUrl: './slider.component.html'
 })
 export class SliderComponent {
 

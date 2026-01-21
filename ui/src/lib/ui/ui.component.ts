@@ -7,7 +7,6 @@ import { SliderComponent } from '../slider/slider.component';
     selector: 'e-shop-frontend-ui',
     standalone: true,
     imports: [CommonModule, BannerComponent, SliderComponent],
-    templateUrl: './ui.component.html',
-    styleUrl: './ui.component.css'
+    templateUrl: './ui.component.html'
 })
 export class UiComponent {}

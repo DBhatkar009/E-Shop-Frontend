@@ -1,0 +1,17 @@
+// base styles
+@import './base//color.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+@import './base/configuration.scss';
+
+// bootstrap link
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css');
+
+// pages Dashboard component styles
+@import './apps/admin/pages/dashboard.scss';
+
+// lib component styles
+@import './ui/ui.scss';
+@import './orders/orders.scss';
+@import './products/products.scss';
+@import './users/users.scss';

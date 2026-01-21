@@ -12,8 +12,7 @@ import { SliderComponent } from 'ui/src/lib/slider/slider.component';
   imports: [RouterModule, HomePageComponent, ProductListComponent, FooterComponent, HeaderComponent, BannerComponent, SliderComponent],
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'e-shop-frontend-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   title = 'ngshop';
