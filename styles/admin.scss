@@ -2,13 +2,24 @@
 @import './base//color.scss';
 @import './base/fonts.scss';
 @import './base/mixins.scss';
-@import './base/configuration.scss';
 
 // bootstrap link
-@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css');
+@import "bootstrap/scss/bootstrap";
 
 // pages Dashboard component styles
 @import './apps/admin/pages/dashboard.scss';
+
+// shared component styles
+@import './apps/admin/shared/shell.scss';
+@import './apps/admin/shared/sidebar.scss';
+
+
+// primeng library
+@import "primeicons/primeicons.css";
+@import "primeng/resources/primeng.min.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeflex/primeflex.css";
+@import './base/configuration.scss';
 
 // lib component styles
 @import './ui/ui.scss';

@@ -2,7 +2,7 @@
 @import './base//color.scss';
 @import './base/fonts.scss';
 @import './base/mixins.scss';
-@import './base/configuration.scss';
+
 
 
 // bootstrap link
@@ -17,6 +17,12 @@
 @import './apps/shop/shared/footer.scss';
 @import './apps/shop/shared/header.scss';
 
+// primeng library
+@import "primeicons/primeicons.css";
+@import "primeng/resources/primeng.min.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeflex/primeflex.css";
+@import './base/configuration.scss';
 
 // lib component styles
 @import './ui/ui.scss';
