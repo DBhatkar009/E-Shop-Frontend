@@ -5,11 +5,12 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { CategoriesService } from 'products/src/lib/services/categories.service';
 import { Category } from 'products/src/lib/models/category';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'admin-categories',
   standalone: true,
-  imports: [CardModule, ToolbarModule, ButtonModule, TableModule],
+  imports: [CardModule, ToolbarModule, ButtonModule, TableModule, RouterLink],
   templateUrl: './categories.component.html',
   styles: ``
 })
