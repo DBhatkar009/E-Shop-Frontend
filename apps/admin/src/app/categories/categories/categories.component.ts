@@ -3,6 +3,8 @@ import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { CategoriesService } from 'products/src/lib/services/categories.service';
+import { Category } from 'products/src/lib/models/category';
 
 @Component({
   selector: 'admin-categories',
@@ -12,10 +14,15 @@ import { TableModule } from 'primeng/table';
   styles: ``
 })
 export class CategoriesComponent {
-  categories = [
-    { id: 1, name: 'Dell inspiron 14 Laptop', icon: 'pi pi-laptop'},
-        { id: 2, name: 'Dell inspiron 15 Laptop', icon: 'pi pi-laptop'},
-            { id: 3, name: 'Dell inspiron 16 Laptop', icon: 'pi pi-laptop'},
-                { id: 4, name: 'Dell inspiron 17 Laptop', icon: 'pi pi-laptop'}
-  ]
+  categories: Category[] = [];
+
+  constructor(private categoriesService: CategoriesService) {}
+
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
+  ngOnInit(): void {
+    this.categoriesService.getCategories().subscribe(cats => {
+      this.categories = cats;
+    })
+  }
+
 }
