@@ -4,13 +4,16 @@ import { Category } from '../models/category';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CategoriesService {
+    constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+    getCategories(): Observable<Category[]> {
+        return this.http.get<Category[]>('http://localhost:4000/api/v1/categories');
+    }
 
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>('http://localhost:4000/api/v1/categories');
-  }
+    createCategories(category: Category): Observable<Category> {
+        return this.http.post<Category>('http://localhost:4000/api/v1/categories', category);
+    }
 }

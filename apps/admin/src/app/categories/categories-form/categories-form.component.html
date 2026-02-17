@@ -1,31 +1,51 @@
- <div class="admin-page">
+<p-toast />
+<div class="admin-page">
     <div class="card flex justify-content-center">
-    <p-card header="Category-Form" subheader="You can Create & Edit Categories">
-       <div class="grid">
-        <div class="col">
-          <p-toolbar>
-            <div class="p-toolbar-group-left">
+        <p-card header="Category-Form" subheader="You can Create & Edit Categories">
+            <div class="grid">
+                <div class="col">
+                    <p-toolbar>
+                        <div class="p-toolbar-group-left"></div>
+                        <div class="p-toolbar-group-right">
+                            <p-button
+                                label="Create"
+                                icon="pi pi-plus"
+                                [rounded]="true"
+                                class="mr-2 min-w-0 border-round"
+                                size="small"
+                                (click)="onSubmit()"
+                                severity="success"
+                            />
+                            <p-button label="Cancel" icon="pi pi-arrow-circle-left" class="mr-2" size="small" severity="danger" />
+                        </div>
+                    </p-toolbar>
+                </div>
             </div>
-            <div class="p-toolbar-group-right">
-                 <p-button label="Create" icon="pi pi-plus" [rounded]="true" class="mr-2 min-w-0 border-round" size="small" severity="success"/>
-                <p-button label="Cancel" icon="pi pi-arrow-circle-left" class="mr-2" size="small" severity="danger"/>
-            </div>
-          </p-toolbar>
-        </div>
-       </div>
 
-        <div class="formgrid grid pt-4" [formGroup] = "categoryForm">
+            <div class="formgrid grid pt-4" [formGroup]="categoryForm">
                 <div class="field col">
                     <label for="firstname2">name</label>
-                    <input id="firstname2" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                    <input
+                        id="firstname2"
+                        formControlName="name"
+                        type="text"
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full ng-invalid ng-dirty"
+                        pInputText
+                    />
+                    <small *ngIf="categoryFormControls['name'].invalid && isSubmitted" class="p-error">name required</small>
                 </div>
                 <div class="field col">
                     <label for="lastname2">icon</label>
-                    <input id="lastname2" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
+                    <input
+                        id="lastname2"
+                        formControlName="icon"
+                        type="text"
+                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full ng-invalid ng-dirty"
+                        pInputText
+                    />
+                    <small *ngIf="categoryFormControls['icon'].invalid && isSubmitted" class="p-error">icon required</small>
                 </div>
             </div>
-       
-       
-    </p-card>
+        </p-card>
+    </div>
 </div>
- </div>
