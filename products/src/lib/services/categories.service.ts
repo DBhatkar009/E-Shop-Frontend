@@ -16,4 +16,8 @@ export class CategoriesService {
     createCategories(category: Category): Observable<Category> {
         return this.http.post<Category>('http://localhost:4000/api/v1/categories', category);
     }
+
+    deleteCategory(categoryId: string): Observable<object> {
+        return this.http.delete<object>(`http://localhost:4000/api/v1/categories/${categoryId}`);
+    }
 }

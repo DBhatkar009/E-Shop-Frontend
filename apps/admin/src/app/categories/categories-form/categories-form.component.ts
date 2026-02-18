@@ -30,6 +30,7 @@ export class CategoriesFormComponent {
         private location: Location
     ) {}
 
+    // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
     ngOnInit(): void {
         this.categoryForm = this.formBuilder.group({
             name: ['', Validators.required],
@@ -47,11 +48,11 @@ export class CategoriesFormComponent {
             icon: this.categoryFormControls['icon'].value
         };
         this.categoriesService.createCategories(category).subscribe({
-            next: (response) => {
+            next: () => {
                 this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category created successfully!' });
                 timer(1000)
                     .toPromise()
-                    .then((done) => {
+                    .then(() => {
                         this.location.back();
                     });
             },
