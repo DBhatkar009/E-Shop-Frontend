@@ -11,6 +11,7 @@ import { Category } from 'products/src/lib/models/category';
 import { ToastModule } from 'primeng/toast';
 import { timer } from 'rxjs';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'admin-categories-form',
@@ -22,12 +23,15 @@ import { Location } from '@angular/common';
 export class CategoriesFormComponent {
     categoryForm!: FormGroup;
     isSubmitted = false;
+    editMode = false;
+    currentCategoryId!: string;
 
     constructor(
         private formBuilder: FormBuilder,
         private categoriesService: CategoriesService,
         private messageService: MessageService,
-        private location: Location
+        private location: Location,
+        private route: ActivatedRoute
     ) {}
 
     // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
@@ -36,6 +40,7 @@ export class CategoriesFormComponent {
             name: ['', Validators.required],
             icon: ['', Validators.required]
         });
+        this.editCategory();
     }
 
     onSubmit() {
@@ -44,9 +49,36 @@ export class CategoriesFormComponent {
             return;
         }
         const category: Category = {
+            id: this.currentCategoryId,
             name: this.categoryFormControls['name'].value,
             icon: this.categoryFormControls['icon'].value
         };
+
+        if (this.editMode) {
+            this.updateCategoryForm(category);
+        } else {
+            this.addCategoryForm(category);
+        }
+    }
+
+    private updateCategoryForm(category: Category) {
+        this.categoriesService.updateCategories(category).subscribe({
+            next: () => {
+                this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category updated successfully!' });
+                timer(1000)
+                    .toPromise()
+                    .then(() => {
+                        this.location.back();
+                    });
+            },
+            error: (error) => {
+                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to update category!' });
+                console.error('Error updating category:', error);
+            }
+        });
+    }
+
+    private addCategoryForm(category: Category) {
         this.categoriesService.createCategories(category).subscribe({
             next: () => {
                 this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category created successfully!' });
@@ -59,6 +91,19 @@ export class CategoriesFormComponent {
             error: (error) => {
                 this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to create category!' });
                 console.error('Error creating category:', error);
+            }
+        });
+    }
+
+    private editCategory() {
+        this.route.params.subscribe((params) => {
+            if (params['id']) {
+                this.editMode = true;
+                this.currentCategoryId = params['id'];
+                this.categoriesService.getUpdateCategory(params['id']).subscribe((category) => {
+                    this.categoryFormControls['name'].setValue(category.name);
+                    this.categoryFormControls['icon'].setValue(category.icon);
+                });
             }
         });
     }

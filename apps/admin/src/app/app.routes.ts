@@ -4,20 +4,27 @@ import { ShellComponent } from './shared/shell/shell.component';
 import { CategoriesComponent } from './categories/categories/categories.component';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 
-export const appRoutes: Route[] = [{
-    path: '',
-    component: ShellComponent,
-    children: [{
-        path: 'dashboard',
-        component: DashboardComponent
-    },
+export const appRoutes: Route[] = [
     {
-    path: 'categories',
-    component: CategoriesComponent
-    },
-{
-    path: 'categories/category-form',
-    component: CategoriesFormComponent
-}]
-},
+        path: '',
+        component: ShellComponent,
+        children: [
+            {
+                path: 'dashboard',
+                component: DashboardComponent
+            },
+            {
+                path: 'categories',
+                component: CategoriesComponent
+            },
+            {
+                path: 'categories/category-form',
+                component: CategoriesFormComponent
+            },
+            {
+                path: 'categories/update/:id',
+                component: CategoriesFormComponent
+            }
+        ]
+    }
 ];

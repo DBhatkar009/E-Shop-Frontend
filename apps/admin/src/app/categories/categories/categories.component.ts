@@ -5,7 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { CategoriesService } from 'products/src/lib/services/categories.service';
 import { Category } from 'products/src/lib/models/category';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -20,11 +20,20 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 export class CategoriesComponent {
     categories: Category[] = [];
 
-    constructor(private categoriesService: CategoriesService, private messageService: MessageService, private confirmationService: ConfirmationService) {}
+    constructor(
+        private categoriesService: CategoriesService,
+        private messageService: MessageService,
+        private confirmationService: ConfirmationService,
+        private router: Router
+    ) {}
 
     // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
     ngOnInit(): void {
         this.getCategory();
+    }
+
+    updateCategory(categoryId: string): void {
+        this.router.navigateByUrl(`/categories/update/${categoryId}`);
     }
 
     deleteCategory(categoryId: string): void {

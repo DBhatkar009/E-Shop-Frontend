@@ -29,7 +29,7 @@
                                 <td>{{ category.icon }}</td>
                                 <td>
                                     <p-button icon="pi pi-trash" (click)="deleteCategory(category._id)" size="small" class="mr-2" severity="danger" />
-                                    <p-button icon="pi pi-pencil" class="mr-2" size="small" severity="success" />
+                                    <p-button icon="pi pi-pencil" (click)="updateCategory(category._id)" class="mr-2" size="small" severity="success" />
                                 </td>
                             </tr>
                         </ng-template>

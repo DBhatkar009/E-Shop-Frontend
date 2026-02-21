@@ -13,6 +13,14 @@ export class CategoriesService {
         return this.http.get<Category[]>('http://localhost:4000/api/v1/categories');
     }
 
+    getUpdateCategory(categoryId: string): Observable<Category> {
+        return this.http.get<Category>(`http://localhost:4000/api/v1/categories/${categoryId}`);
+    }
+
+    updateCategories(category: Category): Observable<Category> {
+        return this.http.put<Category>(`http://localhost:4000/api/v1/categories/${category.id}`, category);
+    }
+
     createCategories(category: Category): Observable<Category> {
         return this.http.post<Category>('http://localhost:4000/api/v1/categories', category);
     }
