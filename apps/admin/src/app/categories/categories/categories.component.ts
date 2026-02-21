@@ -9,11 +9,12 @@ import { Router, RouterLink } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'admin-categories',
     standalone: true,
-    imports: [CardModule, ToolbarModule, ButtonModule, TableModule, RouterLink, ToastModule, ConfirmDialogModule],
+    imports: [CardModule, ToolbarModule, ButtonModule, TableModule, RouterLink, ToastModule, ConfirmDialogModule, CommonModule],
     templateUrl: './categories.component.html',
     styles: ``
 })
