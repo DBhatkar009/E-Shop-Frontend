@@ -64,6 +64,10 @@ export class CategoriesFormComponent {
         }
     }
 
+    onCancel() {
+        this.location.back();
+    }
+
     private updateCategoryForm(category: Category) {
         this.categoriesService.updateCategories(category).subscribe({
             next: (category: Category) => {
