@@ -25,7 +25,9 @@
                         <ng-template pTemplate="body" let-category>
                             <tr>
                                 <td>{{ category.name }}</td>
-                                <td><i style="font-size: 1.5rem" class="pi" [ngClass]="category.icon"></i></td>
+                                <td>
+                                    <i style="font-size: 1.5rem" class="pi" [ngClass]="category.icon"></i>
+                                </td>
                                 <td>
                                     <i class="pi pi-circle-fill" [style.color]="category.color"></i>
                                 </td>
