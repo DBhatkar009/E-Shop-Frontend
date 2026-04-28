@@ -9,6 +9,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { EditorModule } from 'primeng/editor';
 import { DropdownModule } from 'primeng/dropdown';
+import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -31,7 +32,8 @@ import { CategoriesService } from 'products/src/lib/services/categories.service'
         InputTextareaModule,
         InputSwitchModule,
         DropdownModule,
-        EditorModule
+        EditorModule,
+        FileUploadModule
     ],
     templateUrl: './product-form.component.html',
     styles: ``
@@ -41,6 +43,7 @@ export class ProductFormComponent {
     isSubmitted = false;
     editMode = false;
     category: any[] = [];
+    imageUpload: string | ArrayBuffer | undefined;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -74,6 +77,16 @@ export class ProductFormComponent {
         });
     }
 
+    onImageUpload(event: any) {
+        const file = event.target.files[0];
+        if (file) {
+            const fileReader = new FileReader();
+            fileReader.onload = () => {
+                this.imageUpload = fileReader.result ?? undefined;
+            };
+            fileReader.readAsDataURL(file);
+        }
+    }
     onSubmit() {}
 
     onCancel() {}

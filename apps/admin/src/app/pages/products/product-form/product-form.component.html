@@ -70,6 +70,21 @@
                     <label for="richDescription">Rich Description</label>
                     <p-editor formControlName="richDescription" [style]="{ height: '320px' }" />
                 </div>
+                <div class="field col-12">
+                    <label for="image"> Images Upload </label> <br />
+                    <p-fileUpload
+                        type="file"
+                        chooseIcon="pi pi-upload"
+                        accept="image/*"
+                        maxFileSize="1000000"
+                        (change)="onImageUpload($event)"
+                        [auto]="true"
+                        chooseLabel="Browse"
+                    />
+                    <div>
+                        <img [src]="imageUpload" alt="" />
+                    </div>
+                </div>
             </div>
         </p-card>
     </div>
