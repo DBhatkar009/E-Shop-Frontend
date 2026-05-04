@@ -1,0 +1,26 @@
+{
+    "name": "products",
+    "$schema": "../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "products/src",
+    "prefix": "e-shop-frontend",
+    "tags": [],
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nx/angular:ng-packagr-lite",
+            "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+            "options": {
+                "project": "products/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "products/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "products/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production"
+        }
+    }
+}

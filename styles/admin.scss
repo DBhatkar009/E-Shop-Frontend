@@ -1,0 +1,29 @@
+// base styles
+@import "normalize.css/normalize.css";
+@import './base//color.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+
+// bootstrap link
+@import "bootstrap/scss/bootstrap";
+
+// pages Dashboard component styles
+@import './apps/admin/pages/dashboard.scss';
+
+// shared component styles
+@import './apps/admin/shared/shell.scss';
+@import './apps/admin/shared/sidebar.scss';
+
+
+// primeng library
+@import "primeicons/primeicons.css";
+@import "primeng/resources/primeng.min.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeflex/primeflex.css";
+@import './base/configuration.scss';
+
+// lib component styles
+@import './ui/ui.scss';
+@import './orders/orders.scss';
+@import './products/products.scss';
+@import './users/users.scss';
