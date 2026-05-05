@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { Product, ProductsService } from '@e-shop-frontend/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { ProductsService } from 'products/src/lib/services/products.service';
-import { Product } from 'products/src/lib/models/product';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';

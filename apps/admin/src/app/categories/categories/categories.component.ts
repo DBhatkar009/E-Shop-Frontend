@@ -3,13 +3,12 @@ import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { CategoriesService } from 'products/src/lib/services/categories.service';
-import { Category } from 'products/src/lib/models/category';
 import { Router, RouterLink } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { CommonModule } from '@angular/common';
+import { CategoriesService, Category } from '@e-shop-frontend/products';
 
 @Component({
     selector: 'admin-categories',
@@ -68,6 +67,7 @@ export class CategoriesComponent {
     private getCategory() {
         this.categoriesService.getCategories().subscribe((cats) => {
             this.categories = cats;
+            console.log(cats);
         });
     }
 }
