@@ -13,8 +13,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
-import { ProductsService } from 'products/src/lib/services/products.service';
-import { CategoriesService } from 'products/src/lib/services/categories.service';
+import { CategoriesService, ProductsService } from '@e-shop-frontend/products';
 
 @Component({
     selector: 'admin-product-form',
