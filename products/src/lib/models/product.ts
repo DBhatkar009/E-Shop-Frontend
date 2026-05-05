@@ -1,0 +1,18 @@
+import { Category } from './category';
+
+export class Product {
+    id?: string;
+    name?: string;
+    description?: string;
+    richDescription?: string;
+    image?: string;
+    images?: string[];
+    price?: number;
+    brand?: string;
+    countInStock?: number;
+    rating?: number;
+    numReviews?: number;
+    isFeatured?: boolean;
+    categorie?: Category;
+    dateCreated?: string;
+}
