@@ -50,6 +50,7 @@
                         optionLabel="name"
                         formControlName="categorie"
                         placeholder="Select a Category"
+                        optionValue="_id"
                         [filter]="true"
                         filterBy="name"
                         [showClear]="true"
@@ -72,16 +73,8 @@
                 </div>
                 <div class="field col-12">
                     <label for="image"> Images Upload </label> <br />
-                    <p-fileUpload
-                        type="file"
-                        chooseIcon="pi pi-upload"
-                        accept="image/*"
-                        maxFileSize="1000000"
-                        (change)="onImageUpload($event)"
-                        [auto]="true"
-                        chooseLabel="Browse"
-                    />
-                    <div>
+                    <input type="file" class="p-inputtext" accept="image/*" maxFileSize="1000000" (change)="onImageUpload($event)" />
+                    <div class="col-2 mt-2 pl-0">
                         <img [src]="imageUpload" alt="" />
                     </div>
                 </div>
