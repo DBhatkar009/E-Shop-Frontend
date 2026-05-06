@@ -98,8 +98,6 @@ export class ProductFormComponent {
         const productFormData = new FormData();
 
         Object.keys(this.productFormControls).map((key) => {
-            console.log(key);
-            console.log(this.productFormControls[key].value);
             productFormData.append(key, this.productFormControls[key].value);
         });
         this.addProduct(productFormData);
