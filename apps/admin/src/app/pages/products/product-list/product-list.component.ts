@@ -32,6 +32,10 @@ export class ProductListComponent {
         this.getProducts();
     }
 
+    updateProduct(productId: string): void {
+        this.router.navigateByUrl(`/products/update/${productId}`);
+    }
+
     deleteProduct(productId: string): void {
         this.confirmationService.confirm({
             // target: e.target as EventTarget,

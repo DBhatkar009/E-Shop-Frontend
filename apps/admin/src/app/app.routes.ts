@@ -34,6 +34,10 @@ export const appRoutes: Route[] = [
             {
                 path: 'products/product-form',
                 component: ProductFormComponent
+            },
+            {
+                path: 'products/update/:id',
+                component: ProductFormComponent
             }
         ]
     }

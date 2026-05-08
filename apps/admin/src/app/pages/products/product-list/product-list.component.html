@@ -37,7 +37,7 @@
                                 <td>{{ product.dateCreated | date }}</td>
                                 <td>
                                     <p-button icon="pi pi-trash" (click)="deleteProduct(product._id)" size="small" class="mr-2" severity="danger" />
-                                    <p-button icon="pi pi-pencil" class="mr-2" size="small" severity="success" />
+                                    <p-button icon="pi pi-pencil" class="mr-2" (click)="updateProduct(product._id)" size="small" severity="success" />
                                 </td>
                             </tr>
                         </ng-template>

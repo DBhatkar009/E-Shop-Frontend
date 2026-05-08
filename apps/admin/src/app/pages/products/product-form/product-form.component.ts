@@ -15,6 +15,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { timer } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'admin-product-form',
@@ -44,18 +45,21 @@ export class ProductFormComponent {
     editMode = false;
     category: any[] = [];
     imageUpload: string | ArrayBuffer | undefined;
+    currentProductId!: string;
 
     constructor(
         private formBuilder: FormBuilder,
         private productsService: ProductsService,
         private messageService: MessageService,
         private categoriesService: CategoriesService,
-        private location: Location
+        private location: Location,
+        private route: ActivatedRoute
     ) {}
 
     ngOnInit(): void {
         this._initForm();
         this._getCategories();
+        this.editProduct();
     }
 
     private _initForm() {
@@ -117,6 +121,25 @@ export class ProductFormComponent {
             error: (error) => {
                 this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to create product!' });
                 console.error('Error creating product:', error);
+            }
+        });
+    }
+
+    private editProduct() {
+        this.route.params.subscribe((params) => {
+            if (params['id']) {
+                this.editMode = true;
+                this.currentProductId = params['id'];
+                this.productsService.getUpdateProduct(params['id']).subscribe((product) => {
+                    this.productFormControls['name'].setValue(product.name);
+                    this.productFormControls['brand'].setValue(product.brand);
+                    this.productFormControls['price'].setValue(product.price);
+                    this.productFormControls['categorie'].setValue(product.categorie);
+                    this.productFormControls['countInStock'].setValue(product.countInStock);
+                    this.productFormControls['description'].setValue(product.description);
+                    this.productFormControls['richDescription'].setValue(product.richDescription);
+                    this.productFormControls['isFeatured'].setValue(product.isFeatured);
+                });
             }
         });
     }

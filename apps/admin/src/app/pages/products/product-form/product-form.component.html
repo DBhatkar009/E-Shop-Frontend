@@ -1,7 +1,7 @@
 <p-toast />
 <div class="admin-page">
     <div class="card flex justify-content-center">
-        <p-card header="Product Form" subheader="You Can Create & Edit Products">
+        <p-card [header]="editMode ? 'Edit Product' : 'Product Form'" subheader="You Can Create & Edit Products">
             <div class="grid">
                 <div class="col">
                     <p-toolbar>
@@ -26,22 +26,22 @@
                 <div class="field col-4">
                     <label for="name">Name</label>
                     <input id="name" type="text" formControlName="name" pInputText />
-                    <small *ngIf="productForm.get('name')?.invalid && isSubmitted" class="p-error">name required</small>
+                    <small *ngIf="productFormControls['name'].invalid && isSubmitted" class="p-error">name required</small>
                 </div>
                 <div class="field col-4">
                     <label for="brand">Brand</label>
                     <input id="brand" type="text" formControlName="brand" pInputText />
-                    <small *ngIf="productForm.get('brand')?.invalid && isSubmitted" class="p-error">brand required</small>
+                    <small *ngIf="productFormControls['brand'].invalid && isSubmitted" class="p-error">brand required</small>
                 </div>
                 <div class="field col-4">
                     <label for="price">Price</label>
                     <p-inputNumber inputId="price" formControlName="price" />
-                    <small *ngIf="productForm.get('price')?.invalid && isSubmitted" class="p-error">price required</small>
+                    <small *ngIf="productFormControls['price'].invalid && isSubmitted" class="p-error">price required</small>
                 </div>
                 <div class="field col-6">
                     <label for="countInStock">CountInStock</label>
                     <p-inputNumber inputId="countInStock" formControlName="countInStock" />
-                    <small *ngIf="productForm.get('countInStock')?.invalid && isSubmitted" class="p-error">count in stock required</small>
+                    <small *ngIf="productFormControls['countInStock'].invalid && isSubmitted" class="p-error">count in stock required</small>
                 </div>
                 <div class="field col-4">
                     <label for="category">Category</label>
@@ -56,7 +56,7 @@
                         [showClear]="true"
                         placeholder="Select a Category"
                     />
-                    <small *ngIf="productForm.get('categorie')?.invalid && isSubmitted" class="p-error">category is required</small>
+                    <small *ngIf="productFormControls['categorie'].invalid && isSubmitted" class="p-error">category is required</small>
                 </div>
                 <div class="field col-2">
                     <label for="isFeatured">isfeatured</label><br />
@@ -65,11 +65,12 @@
                 <div class="field col-12">
                     <label for="description">Description</label>
                     <textarea rows="5" cols="30" formControlName="description" pInputTextarea></textarea>
-                    <small *ngIf="productForm.get('description')?.invalid && isSubmitted" class="p-error">description is required</small>
+                    <small *ngIf="productFormControls['description'].invalid && isSubmitted" class="p-error">description is required</small>
                 </div>
                 <div class="field col-12">
                     <label for="richDescription">Rich Description</label>
                     <p-editor formControlName="richDescription" [style]="{ height: '320px' }" />
+                    <small *ngIf="productFormControls['richDescription'].invalid && isSubmitted" class="p-error">rich description is required</small>
                 </div>
                 <div class="field col-12">
                     <label for="image"> Images Upload </label> <br />
