@@ -21,8 +21,8 @@ export class ProductsService {
         return this.http.get<Product>(`http://localhost:4000/api/v1/products/${productId}`);
     }
 
-    updateProduct(product: Product): Observable<Product> {
-        return this.http.put<Product>(`http://localhost:4000/api/v1/products/${product.id}`, product);
+    updateProduct(product: FormData, productId: string): Observable<Product> {
+        return this.http.put<Product>(`http://localhost:4000/api/v1/products/${productId}`, product);
     }
 
     deleteProduct(productId: string): Observable<object> {

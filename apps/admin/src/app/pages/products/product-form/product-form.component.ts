@@ -104,7 +104,12 @@ export class ProductFormComponent {
         Object.keys(this.productFormControls).map((key) => {
             productFormData.append(key, this.productFormControls[key].value);
         });
-        this.addProduct(productFormData);
+
+        if (this.editMode) {
+            this.updateProduct(productFormData);
+        } else {
+            this.addProduct(productFormData);
+        }
     }
 
     private addProduct(product: FormData) {
@@ -121,6 +126,24 @@ export class ProductFormComponent {
             error: (error) => {
                 this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to create product!' });
                 console.error('Error creating product:', error);
+            }
+        });
+    }
+
+    private updateProduct(product: FormData) {
+        this.productsService.updateProduct(product, this.currentProductId).subscribe({
+            next: (product: Product) => {
+                this.messageService.add({ severity: 'success', summary: 'Success', detail: `${product.name} updated successfully!` });
+                timer(1000)
+                    .toPromise()
+                    .then(() => {
+                        this.location.back();
+                    });
+                console.log(product);
+            },
+            error: (error) => {
+                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to update product!' });
+                console.error('Error updating product:', error);
             }
         });
     }
