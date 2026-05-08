@@ -134,11 +134,12 @@ export class ProductFormComponent {
                     this.productFormControls['name'].setValue(product.name);
                     this.productFormControls['brand'].setValue(product.brand);
                     this.productFormControls['price'].setValue(product.price);
-                    this.productFormControls['categorie'].setValue(product.categorie);
+                    this.productFormControls['categorie'].setValue((product.categorie as any)?._id ?? '');
                     this.productFormControls['countInStock'].setValue(product.countInStock);
                     this.productFormControls['description'].setValue(product.description);
                     this.productFormControls['richDescription'].setValue(product.richDescription);
                     this.productFormControls['isFeatured'].setValue(product.isFeatured);
+                    this.imageUpload = product.image;
                 });
             }
         });
