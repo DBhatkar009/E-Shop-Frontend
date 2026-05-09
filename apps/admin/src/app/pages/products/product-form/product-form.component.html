@@ -75,6 +75,7 @@
                 <div class="field col-12">
                     <label for="image"> Images Upload </label> <br />
                     <input type="file" class="p-inputtext" accept="image/*" maxFileSize="1000000" (change)="onImageUpload($event)" />
+                    <small *ngIf="productFormControls['image'].invalid && isSubmitted" class="p-error">image is required</small>
                     <div class="col-2 mt-2 pl-0">
                         <img [src]="imageUpload" alt="" />
                     </div>

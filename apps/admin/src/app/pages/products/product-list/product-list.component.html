@@ -13,7 +13,7 @@
             </div>
             <div class="grid">
                 <div class="col">
-                    <p-table [value]="products" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+                    <p-table [paginator]="true" [rows]="8" [value]="products" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th>Name</th>

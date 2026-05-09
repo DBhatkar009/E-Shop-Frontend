@@ -71,7 +71,7 @@ export class ProductFormComponent {
             countInStock: ['', Validators.required],
             description: ['', Validators.required],
             richDescription: [''],
-            image: [''],
+            image: ['', Validators.required],
             isFeatured: [false]
         });
     }
@@ -163,6 +163,8 @@ export class ProductFormComponent {
                     this.productFormControls['richDescription'].setValue(product.richDescription);
                     this.productFormControls['isFeatured'].setValue(product.isFeatured);
                     this.imageUpload = product.image;
+                    this.productFormControls['image'].setValidators([]);
+                    this.productFormControls['image'].updateValueAndValidity();
                 });
             }
         });
