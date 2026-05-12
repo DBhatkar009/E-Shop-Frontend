@@ -6,6 +6,7 @@ import { CategoriesFormComponent } from './categories/categories-form/categories
 import { ProductListComponent } from './pages/products/product-list/product-list.component';
 import { ProductFormComponent } from './pages/products/product-form/product-form.component';
 import { UserListComponent } from './users/user-list/user-list.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
 
 export const appRoutes: Route[] = [
     {
@@ -43,6 +44,10 @@ export const appRoutes: Route[] = [
             {
                 path: 'users',
                 component: UserListComponent
+            },
+            {
+                path: 'users/update/:id',
+                component: UserFormComponent
             }
         ]
     }

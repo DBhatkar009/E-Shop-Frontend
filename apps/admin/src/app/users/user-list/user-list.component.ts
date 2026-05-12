@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -18,7 +18,12 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export class UserListComponent {
     users: User[] = [];
 
-    constructor(private usersService: UsersService, private messageService: MessageService, private confirmationService: ConfirmationService) {}
+    constructor(
+        private usersService: UsersService,
+        private messageService: MessageService,
+        private confirmationService: ConfirmationService,
+        private router: Router
+    ) {}
 
     // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
     ngOnInit(): void {
@@ -26,7 +31,7 @@ export class UserListComponent {
     }
 
     updateUser(userId: string): void {
-        console.log();
+        this.router.navigateByUrl(`/users/update/${userId}`);
     }
 
     deleteUser(userId: string): void {
