@@ -7,6 +7,7 @@ import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { UsersService, User } from '@e-shop-frontend/users';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
     standalone: true,
@@ -17,7 +18,7 @@ import { UsersService, User } from '@e-shop-frontend/users';
 export class UserListComponent {
     users: User[] = [];
 
-    constructor(private usersService: UsersService) {}
+    constructor(private usersService: UsersService, private messageService: MessageService, private confirmationService: ConfirmationService) {}
 
     // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
     ngOnInit(): void {
@@ -29,7 +30,31 @@ export class UserListComponent {
     }
 
     deleteUser(userId: string): void {
-        console.log();
+        this.confirmationService.confirm({
+            // target: e.target as EventTarget,
+            message: 'Are you sure that you want to delete this user?',
+            header: 'Delete User',
+            icon: 'pi pi-exclamation-triangle',
+            acceptIcon: 'none',
+            rejectIcon: 'none',
+            rejectButtonStyleClass: 'p-button-text',
+            accept: () => {
+                this.usersService.deleteUser(userId).subscribe({
+                    next: (response) => {
+                        this.getUsers();
+                        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'User deleted successfully!' });
+                        console.log(response);
+                    },
+                    error: (error) => {
+                        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to delete user!' });
+                        console.log(error);
+                    }
+                });
+            },
+            reject: () => {
+                this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+            }
+        });
     }
 
     private getUsers() {
