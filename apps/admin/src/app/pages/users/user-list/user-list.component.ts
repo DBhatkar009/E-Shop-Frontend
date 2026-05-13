@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -8,10 +9,11 @@ import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { UsersService, User } from '@e-shop-frontend/users';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { TagModule } from 'primeng/tag';
 
 @Component({
     standalone: true,
-    imports: [CardModule, ToolbarModule, ButtonModule, TableModule, ToastModule, ConfirmDialogModule, RouterLink],
+    imports: [CardModule, ToolbarModule, ButtonModule, TableModule, ToastModule, ConfirmDialogModule, RouterLink, TagModule, CommonModule],
     templateUrl: './user-list.component.html',
     styles: ``
 })

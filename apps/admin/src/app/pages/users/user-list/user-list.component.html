@@ -20,6 +20,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>is Admin</th>
                                 <th>Zip Code</th>
                                 <th>Country</th>
                                 <th></th>
@@ -29,6 +30,10 @@
                             <tr>
                                 <td>{{ user.name }}</td>
                                 <td>{{ user.email }}</td>
+                                <td>
+                                    <p-tag *ngIf="user.isAdmin" icon="pi pi-user" severity="success" value="Admin" [rounded]="true" />
+                                    <p-tag *ngIf="!user.isAdmin" icon="pi pi-user" severity="danger" value="Not-Admin" [rounded]="true" />
+                                </td>
                                 <td>{{ user.zip }}</td>
                                 <td>{{ user.country }}</td>
                                 <td>
